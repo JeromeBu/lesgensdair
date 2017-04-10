@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Category.destroy_all
+Product.destroy_all
+
+parapente = Category.create!(name: 'parapente')
+
+Product.create!(sku: 'jean-mimi', name: 'Jean-Michel - Le Wagon', category: parapente)
+Product.create!(sku: 'octocat',   name: 'Octocat -  GitHub',      category: parapente)
+
