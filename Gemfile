@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 
 gem 'coffee-script'
 
+gem 'money-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
