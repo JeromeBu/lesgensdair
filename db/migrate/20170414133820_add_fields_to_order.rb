@@ -1,0 +1,9 @@
+class AddFieldsToOrder < ActiveRecord::Migration[5.0]
+  def change
+    add_column :orders, :first_name, :string
+    add_column :orders, :last_name, :string
+    add_column :orders, :video, :boolean
+    add_column :orders, :email, :string
+    add_column :orders, :product_name, :string
+  end
+end

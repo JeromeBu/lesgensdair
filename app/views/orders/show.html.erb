@@ -1,7 +1,12 @@
 <h1>Order</h1>
 
 <ul>
+  <li>Prénom: <%= @order.first_name %></li>
+  <li>Nom: <%= @order.last_name %></li>
+  <li>Email: <%= @order.email %></li>
   <li>Status: <%= @order.state %></li>
-  <li>Item: <%= @order.teddy_sku %></li>
+  <li>Numéro du produit acheté: <%= @order.product_sku %></li>
+  <li>Produit acheté: <%= Product.find_by(sku: @order.product_sku).name %></li>
+  <li>Video: <%= @order.video %></li>
   <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
 <ul>
