@@ -18,6 +18,7 @@
                     <p>La personne qui va profiter du vol/stage:</p>
                     <p>Prénom : <strong><%= @order.first_name %></strong></p>
                     <p>Nom : <strong> <%= @order.last_name %></strong> </p>
+                    <p>Vidéo : <strong><%= @order.video ? "oui" : "non" %></strong></p>
                   <label class="amount">
                     <p>Montant à payer : <%= humanized_money_with_symbol(@order.amount) %></p>
                   </label>
