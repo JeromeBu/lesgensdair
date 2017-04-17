@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     puts "--------------------------------------------------------"
     p order_params[:video]
     order_params[:video] == "1" ? amount_to_pay = @product.price + Money.new(2000, 'EUR') : amount_to_pay = @product.price
-    @order  = Order.create(product_sku: @product.sku, product_name: @product.name, amount: amount_to_pay, state: 'en attente de paiement', first_name: order_params[:first_name], last_name: order_params[:last_name], email: order_params[:email], video: order_params[:video])
+    @order  = Order.create(product_sku: @product.sku, product_name: @product.name, amount: amount_to_pay, state: 'en attente de paiement', first_name: order_params[:first_name].capitalize, last_name: order_params[:last_name].capitalize, email: order_params[:email], video: order_params[:video])
     if @order.save
       redirect_to new_order_payment_path(@order)
     else

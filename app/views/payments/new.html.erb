@@ -1,20 +1,44 @@
-<h1>Achat d'un <%= @order.product_name %></h1>
 <%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+  <div class="introduction-title">
+    <h3>STRIPE</h3>
+    <p>Stripe est une plateforme sécurisée (certifiée PCI niveau 1, le niveau de sécurité le plus élevé), et s’occupe entièrement du paiement, nous n’avons à aucun moment accès à votre carte bancaire.
+    Nous avons choisi Stripe, pour sa sécurité, pour son côté pratique et bien plus simple que PayPal.</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card">
+            <div class="card-content">
+              <div class="card-title">
+                <h3>Achat d'un <%= @order.product_name %></h3>
+              </div>
+              <div class="card-description">
+                <article>
+                    <p>Email de la personne qui paye : <strong><%= @order.email %></strong></p>
+                    <p>La personne qui va profiter du vol/stage:</p>
+                    <p>Prénom : <strong><%= @order.first_name %></strong></p>
+                    <p>Nom : <strong> <%= @order.last_name %></strong> </p>
+                  <label class="amount">
+                    <p>Montant à payer : <%= humanized_money_with_symbol(@order.amount) %></p>
+                  </label>
+                </article>
+                 <!-- Script js pour stripe -->
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-label="Payer par carte"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-name="<%= @order.product_name %>"
+                    data-email="<%= @order.email %>"
+                    data-first_name
+                    data-amount="<%= @order.amount_cents %>"
+                    data-currency="<%= @order.amount.currency %>"
+                    data-locale="fr">
+                  </script>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- changer l'email, car pas de current user logged in -->
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Product"
-    data-email="<%= @order.email %>"
-    data-description="Product <%= @order.product_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>">
-  </script>
 
 <% end %>

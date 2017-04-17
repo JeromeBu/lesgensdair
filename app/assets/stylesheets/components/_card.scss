@@ -1,0 +1,72 @@
+.card {
+  padding: 50px;
+  background-color: rgba(209, 217, 228, 0.7);
+  border-radius: 5px;
+  margin: 15px 0;
+  position: relative;
+}
+
+.card-title {
+  text-align: center;
+  background-color: #3D6ECF;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  color: white;
+}
+
+.card-content {
+  justify-content: justify;
+}
+
+.card-description {
+  min-height: 140px;
+}
+
+.pay-link {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  min-width: 50%;
+  margin-top: 15px;
+  height: 60px;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.pay-link:hover {
+  background-color: #7FBF3C;
+  border: 1px solid #7FBF3C;
+  transition: 0.2s;
+}
+
+.stripe-button {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  min-width: 50%;
+  margin-top: 15px;
+  height: 60px;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.stripe-button:hover {
+  background-color: #7FBF3C;
+  border: 1px solid #7FBF3C;
+  transition: 0.2s;
+}

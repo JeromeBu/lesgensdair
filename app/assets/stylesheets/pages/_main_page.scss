@@ -2,29 +2,41 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.card {
-  padding: 50px;
-  background-color: #D1D9E4;
-  background-color: rgba(209, 217, 228, 0.7);
-  border-radius: 5px;
-  margin: 10px 0;
+
+h3 {
+  margin: 0px;
+  font-size: 24px;
 }
+
 
 .introduction-title {
   background-color: #7FBF3C;
-  margin: 0px 5vw;
+  margin: 0px 8vw;
   box-shadow: 1px 1px 3px #008000;
   border-radius: 5px;
   padding: 15px;
 }
 
-.products {
-  margin: 0px 10vw;
+.introduction-title h3 {
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: center;
 }
 
+.conclusion-title {
+  background-color: rgba(209, 217, 228, 0.7);
+  margin: 0px 8vw;
+  box-shadow: 1px 1px 3px grey;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+
+
 #logo {
-  margin: 30px 5vw 10px 5vw;
-  max-width: 200px;
+  margin: 30px 0 10px 8vw;
+  max-width: 300px;
 }
 
 body {

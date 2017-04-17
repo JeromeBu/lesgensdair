@@ -3,27 +3,34 @@
   <p>Stripe est une plateforme sécurisée (certifiée PCI niveau 1, le niveau de sécurité le plus élevé), et s’occupe entièrement du paiement, nous n’avons à aucun moment accès à votre carte bancaire.
   Nous avons choisi Stripe, pour sa sécurité, pour son côté pratique et bien plus simple que PayPal.</p>
 </div>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="products">
       <% @products.each do |product| %>
         <div class="col-xs-12 col-sm-6">
           <div class="card">
               <div class="card-content">
-                <h3><%= product.name %></h3>
-                <p><%= product.description %></p>
-                <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
+                <div class="card-title">
+                  <h3><%= product.name %></h3>
+                </div>
+                <div class="card-description">
+                  <p><%= product.description %></p>
+                  <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
+                </div>
                 <%= simple_form_for @order do |f| %>
-                  <%= f.input :email, label: "Email de la personne qui paye" %>
+                  <%= f.input :email, label: "Email du payeur", placeholder: "tropsympa@gmail.com" %>
                   <p>Le chanceux :</p>
-                  <%= f.input :first_name, label: "Prénom" %>
-                  <%= f.input :last_name, label: "Nom" %>
-                  <%= f.label :video, "Option photos & vidéo" %>
-                  <%= f.input_field :video, as: :boolean %>
+                  <%= f.input :first_name, label: "Prénom", placeholder: "Prénom de celui qui vole" %>
+                  <%= f.input :last_name, label: "Nom", placeholder: "Nom de celui qui vole" %>
+                  <% if ["0001", "0002"].include? product.sku %>
+                    <%= f.label :video, "Option photos & vidéo (+20 euros)" %>
+                    <%= f.check_box :video, as: :boolean, label: false %>
+                  <% end %>
                   <%= f.hidden_field :product_sku, value: product.sku %>
                   <%= f.hidden_field :product_name, value: product.name %>
+                  <hr>
                   <br>
-                  <%= f.submit 'Acheter', class: "btn btn-primary"%>
+                  <%= f.submit 'OFFRIR', class: "pay-link"%>
                 <% end %>
               </div>
           </div>
@@ -31,4 +38,10 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class="conclusion-title">
+  <p>Si vous ne souhaitez pas payer en ligne, nous avons plusieurs solutions pour vous.
+Vous pouvez nous envoyer le formulaire (télécharger ici) accompagné du règlement par chèque (chèque à l’ordre de « Les Gens d’Air » ).</p>
+<p>Vous pouvez réglez par virement bancaire en nous envoyant un mail pour nos coordonnées bancaires.
+Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, contactez-nous par mail avec vos coordonnées et disponibilités.</p>
 </div>
