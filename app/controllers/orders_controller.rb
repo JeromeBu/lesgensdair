@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :create]
 
   def index
+    order = Order.new
+    authorize order
     @orders = policy_scope(Order).order(created_at: :desc)
   end
 

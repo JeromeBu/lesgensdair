@@ -46,3 +46,8 @@ Vous pouvez nous envoyer le formulaire (<%= link_to "Télécharger ici", asset_p
 Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, contactez-nous par mail avec vos coordonnées et disponibilités.</p>
 </div>
 
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fa fa-power-off" aria-hidden="true"></i>
+  <% end %>
+<% end %>
