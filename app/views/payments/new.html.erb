@@ -15,31 +15,42 @@
               <div class="card-description">
                 <article>
                     <p>Email de la personne qui paye : <strong><%= @order.email %></strong></p>
+                    <br>
                     <p>La personne qui va profiter du vol/stage:</p>
-                    <p>Prénom : <strong><%= @order.first_name %></strong></p>
-                    <p>Nom : <strong> <%= @order.last_name %></strong> </p>
-                    <p>Vidéo : <strong><%= @order.video ? "oui" : "non" %></strong></p>
+                    <p><strong>Prénom :</strong> <%= @order.first_name %></p>
+                    <p><strong>Nom :</strong> <%= @order.last_name %></p>
+                    <p><strong>Vidéo :</strong> <%= @order.video ? "oui (+20€)" : "non" %></p>
                   <label class="amount">
-                    <p>Montant à payer : <%= humanized_money_with_symbol(@order.amount) %></p>
+                    <p class="centrer">Montant à payer : <%= humanized_money_with_symbol(@order.amount) %></p>
                   </label>
+                  <br>
+                  <br>
+                   <!-- Script js pour stripe -->
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-label="Payer par carte"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-name="<%= @order.product_name %>"
+                      data-email="<%= @order.email %>"
+                      data-first_name
+                      data-amount="<%= @order.amount_cents %>"
+                      data-currency="<%= @order.amount.currency %>"
+                      data-locale="fr">
+                    </script>
                 </article>
-                 <!-- Script js pour stripe -->
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-label="Payer par carte"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-name="<%= @order.product_name %>"
-                    data-email="<%= @order.email %>"
-                    data-first_name
-                    data-amount="<%= @order.amount_cents %>"
-                    data-currency="<%= @order.amount.currency %>"
-                    data-locale="fr">
-                  </script>
               </div>
             </div>
         </div>
       </div>
     </div>
   </div>
-
+  <div class="conclusion-title">
+  <p>Si vous ne souhaitez pas payer en ligne, nous avons plusieurs solutions pour vous.
+Vous pouvez nous envoyer le formulaire (<%= link_to "Télécharger ici", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank" %>) accompagné du règlement par chèque (chèque à l’ordre de « Les Gens d’Air » ).</p>
+  <p>Vous pouvez réglez par virement bancaire en nous envoyant un mail pour nos coordonnées bancaires.
+Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, contactez-nous par mail avec vos coordonnées et disponibilités.</p>
+</div>
 
 <% end %>
+
+
+

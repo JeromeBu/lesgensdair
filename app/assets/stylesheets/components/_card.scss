@@ -1,18 +1,23 @@
 .card {
+  position: relative;
   padding: 50px;
   background-color: rgba(209, 217, 228, 0.7);
   border-radius: 5px;
   margin: 15px 0;
-  position: relative;
 }
 
 .card-title {
   text-align: center;
-  background-color: #3D6ECF;
   border-radius: 5px;
   margin-bottom: 15px;
   padding: 10px 0;
-  color: white;
+  color: #3D6ECF;
+}
+
+.card-title h3 {
+
+  font-family: $hand-font;
+  font-size: 40px;
 }
 
 .card-content {
@@ -25,10 +30,10 @@
 
 .pay-link {
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
   left: 0;
   right: 0;
+  margin-left: auto;
+  margin-right: auto;
   bottom: 15px;
   min-width: 50%;
   margin-top: 15px;
@@ -36,8 +41,8 @@
   justify-content: center;
   font-size: 16px;
   color: white;
-  background-color: black;
-  border: 1px solid black;
+  background-color: #3D6ECF;
+  border: 1px solid #3D6ECF;
   border-radius: 5px;
 }
 
@@ -47,26 +52,20 @@
   transition: 0.2s;
 }
 
-.stripe-button {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  bottom: 15px;
-  min-width: 50%;
-  margin-top: 15px;
-  height: 60px;
-  justify-content: center;
-  font-size: 16px;
-  color: white;
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 5px;
+label .amount {
+  margin-bottom: 30px;
 }
 
-.stripe-button:hover {
-  background-color: #7FBF3C;
-  border: 1px solid #7FBF3C;
-  transition: 0.2s;
+.stripe-button-el {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  bottom: 30px;
+}
+
+.centrer {
+  text-align: center;
 }

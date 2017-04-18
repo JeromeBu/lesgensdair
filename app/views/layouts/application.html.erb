@@ -12,7 +12,7 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= image_tag "logo.png", id: "logo"%>
+    <%= image_tag "logo.png", id: "logo", class: "hidden-xs"%>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>

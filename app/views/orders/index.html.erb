@@ -1,0 +1,57 @@
+<div class="introduction-title">
+  <div class="admin-options">
+    <h3>Liste des commandes : <%= current_user.email + "   admin? = " + current_user.admin.to_s || "pas connecté" %></h3>
+    <h4>
+      <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-key" aria-hidden="true"></i>
+      <% end %>
+      &nbsp;
+      <%= link_to destroy_user_session_path do %>
+        <i class="fa fa-power-off" aria-hidden="true"></i>
+      <% end %>
+    </h4>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card">
+            <div class="card-content">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Date</th>
+                    <th>email</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Prestation</th>
+                    <th>Video?</th>
+                    <th>Montant</th>
+                    <th>Paiement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @orders.each do |order| %>
+                    <tr>
+                      <td><%= order.id %></td>
+                      <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+                      <td><%= order.email %></td>
+                      <td><%= order.first_name %></td>
+                      <td><%= order.last_name %></td>
+                      <td><%= order.product_name %></td>
+                      <td><%= order.video ? "oui" : "non" %></td>
+                      <td><%= order.amount %></td>
+                      <td><%= order.state %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

@@ -11,7 +11,7 @@ h3 {
 
 .introduction-title {
   background-color: #7FBF3C;
-  margin: 0px 8vw;
+  margin: 10px 8vw;
   box-shadow: 1px 1px 3px #008000;
   border-radius: 5px;
   padding: 15px;
@@ -30,6 +30,21 @@ h3 {
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 15px;
+}
+
+.admin-options h3 {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.admin-options h4 {
+  display: inline-block;
+  float: right;
+  margin-top: 3px;
+  margin-right: 10px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 

@@ -29,6 +29,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_order
-    @order = Order.where(state: 'en attente de paiement').find(params[:order_id])
+    @order = Order.where(state: 'en attente').find(params[:order_id])
+    authorize @order
   end
 end

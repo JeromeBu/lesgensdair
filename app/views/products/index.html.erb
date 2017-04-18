@@ -15,15 +15,15 @@
                 </div>
                 <div class="card-description">
                   <p><%= product.description %></p>
-                  <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
+                  <p class="centrer">Prix: <strong><%= humanized_money_with_symbol(product.price) %></strong></p>
                 </div>
                 <%= simple_form_for @order do |f| %>
                   <%= f.input :email, label: "Email du payeur", placeholder: "tropsympa@gmail.com" %>
-                  <p>Le chanceux :</p>
+                  <p class="centrer">Le chanceux :</p>
                   <%= f.input :first_name, label: "Prénom", placeholder: "Prénom de celui qui vole" %>
                   <%= f.input :last_name, label: "Nom", placeholder: "Nom de celui qui vole" %>
                   <% if ["0001", "0002"].include? product.sku %>
-                    <%= f.label :video, "Option photos & vidéo (+20 euros)" %>
+                    <%= f.label :video, "Photos & vidéo (+20 euros)" %>
                     <%= f.check_box :video, as: :boolean, label: false %>
                   <% end %>
                   <%= f.hidden_field :product_sku, value: product.sku %>
@@ -41,7 +41,8 @@
 </div>
 <div class="conclusion-title">
   <p>Si vous ne souhaitez pas payer en ligne, nous avons plusieurs solutions pour vous.
-Vous pouvez nous envoyer le formulaire (télécharger ici) accompagné du règlement par chèque (chèque à l’ordre de « Les Gens d’Air » ).</p>
+Vous pouvez nous envoyer le formulaire (<%= link_to "Télécharger ici", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank" %>) accompagné du règlement par chèque (chèque à l’ordre de « Les Gens d’Air » ).</p>
 <p>Vous pouvez réglez par virement bancaire en nous envoyant un mail pour nos coordonnées bancaires.
 Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, contactez-nous par mail avec vos coordonnées et disponibilités.</p>
 </div>
+
