@@ -12,7 +12,9 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= image_tag "logo.png", id: "logo", class: "hidden-xs"%>
+    <%= link_to "http://www.lesgensdair.com/" do %>
+      <%= image_tag "logo.png", id: "logo", class: "hidden-xs"%>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>
