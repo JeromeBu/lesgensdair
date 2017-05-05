@@ -26,9 +26,11 @@
                     <%= f.label :video, "Photos & vidéo (+20 euros)" %>
                     <%= f.check_box :video, as: :boolean, label: false %>
                   <% end %>
+                  <hr id="cgv-relative-ref">
+
+                  <%= f.input :cgv, as: :boolean, id: "checkbox-cgv", label: ("J'ai bien pris connaissance des #{ link_to "conditions de ventes", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank"}").html_safe %>
                   <%= f.hidden_field :product_sku, value: product.sku %>
                   <%= f.hidden_field :product_name, value: product.name %>
-                  <hr>
                   <br>
                   <%= f.submit 'OFFRIR', class: "pay-link"%>
                 <% end %>
