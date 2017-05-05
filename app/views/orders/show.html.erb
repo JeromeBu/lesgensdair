@@ -1,12 +1,28 @@
-<h1>Order</h1>
-
-<ul>
-  <li>Prénom: <%= @order.first_name %></li>
-  <li>Nom: <%= @order.last_name %></li>
-  <li>Email: <%= @order.email %></li>
-  <li>Status: <%= @order.state %></li>
-  <li>Numéro du produit acheté: <%= @order.product_sku %></li>
-  <li>Produit acheté: <%= Product.find_by(sku: @order.product_sku).name %></li>
-  <li>Video: <%= @order.video %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
-<ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card">
+          <div class="card-content">
+            <div class="card-title">
+              <h3>Récapitulatif de la commande d'un <%= @order.product_name %></h3>
+            </div>
+            <div class="card-description">
+                  <p>Merci de nous avoir fait confiance, vous allez reçevoir un mail de confirmation de la commande.</p>
+                  <br>
+                  <p>Email de la personne ayant payé : <strong><%= @order.email %></strong></p>
+                  <br>
+                  <p>La personne qui va profiter du vol/stage est:</p>
+                  <p><strong>Prénom :</strong> <%= @order.first_name %></p>
+                  <p><strong>Nom :</strong> <%= @order.last_name %></p>
+                  <p><strong>Vidéo :</strong> <%= @order.video ? "oui (+20€)" : "non" %></p>
+                <label class="amount">
+                  <p class="centrer">Montant de la commande : <%= humanized_money_with_symbol(@order.amount) %></p>
+                </label>
+                <p><strong>Numéro de la commance:</strong>&nbsp;<%= @order.id %></p>
+                <br>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -14,6 +14,12 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    return user.admin if user
+
+    if record.created_at > 1.hour.ago
+      true
+    else
+      false
+    end
   end
 end
