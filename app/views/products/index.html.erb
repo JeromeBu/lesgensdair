@@ -28,7 +28,7 @@
                   <% end %>
                   <hr id="cgv-relative-ref">
 
-                  <%= f.input :cgv, as: :boolean, id: "checkbox-cgv", label: ("J'ai bien pris connaissance des #{ link_to "conditions de ventes", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank"}").html_safe %>
+                  <%= f.input :cgv, as: :boolean, id: "checkbox-cgv", label: ("<abbr title='required'>*</abbr> J'ai bien pris connaissance des #{ link_to "conditions de ventes", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank"}").html_safe %>
                   <%= f.hidden_field :product_sku, value: product.sku %>
                   <%= f.hidden_field :product_name, value: product.name %>
                   <br>
@@ -53,3 +53,5 @@ Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, <%= link_t
     <i class="fa fa-power-off" aria-hidden="true"></i>
   <% end %>
 <% end %>
+
+<abbr title="required">*</abbr>
