@@ -2,7 +2,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "secure-lesgensdair.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
+    :address => "https://www.secure-lesgensdair.com",
     :port    => 25,
     :domain  => 'secure-lesgensdair.com'
   }
