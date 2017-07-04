@@ -1,5 +1,11 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "https://secure-lesgensdair.com", port: 25}
+  config.action_mailer.default_url_options = { host: "secure-lesgensdair.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "127.0.0.1",
+    :port    => 25,
+    :domain  => 'secure-lesgensdair.com'
+  }
 
   config.serve_static_assets = true
 
