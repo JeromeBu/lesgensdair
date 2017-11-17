@@ -1,0 +1,58 @@
+#sheet {
+  border: 1px black;
+  width: 3508px;
+  display: block;
+  background-color: #8AC9FD;
+  position: relative;
+}
+
+#img-zone {
+  height: 2060px;
+  background-image: url("background-para2.jpg");
+/*  app/assets/images/background-para2.jpg*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  /*position: absolute;*/
+/*  background-color: #808080;
+*/}
+
+h1 {
+  font-family: Apple-Chancery;
+  font-size: 60px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 20px;
+}
+
+
+/* Pour :: */
+h2 {
+  font-family: GujaratiSangamMN;
+  font-size: 24px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+
+
+/* Rectangle: */
+#green-rectangle {
+  background-color: #7FBF3C;
+  border: 1px solid #979797;
+  height: 420px;
+  /*position: absolute;*/
+}
+
+
+/* logo: */
+#logo {
+  width: 600px;
+  height: 500px;
+  background-image: url("logo.png");
+  /*  app/assets/images/logo.png*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  bottom: 100px;
+  left: 100px;
+}
