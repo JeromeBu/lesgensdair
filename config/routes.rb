@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
-
   root to: 'products#index'
+  get 'bon', to: 'pages#bon'
   resources :products, only: [:index]
   resources :orders, only: :index
   resources :orders, only: [:show, :create] do

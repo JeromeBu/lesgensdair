@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, state: 'payé')
     @order.creation_bon
-    BuyerMailer.thanks(@order).deliver_now
+    # BuyerMailer.thanks(@order).deliver_now
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
@@ -29,9 +29,10 @@ class PaymentsController < ApplicationController
   end
 
 private
-
+  # before_actions :
   def set_order
     @order = Order.where(state: 'en attente').find(params[:order_id])
     authorize @order
   end
+  # -- end of before_actions
 end
