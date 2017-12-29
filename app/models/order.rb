@@ -13,8 +13,11 @@ class Order < ApplicationRecord
                     product_name: self.product_name}
     string_of_param = parametres.reduce("") { |sum,(key,val)| "#{sum}&#{key}=#{val}"}
 
-    html = "http://localhost:3000/bon?#{string_of_param}"
-
+    if Rails.env == "development"
+      html = "http://localhost:3000/bon?#{string_of_param}"
+    else
+      html = "https://www.secure-lesgensdair.com/bon?#{string_of_param}"
+    end
     kit = PDFKit.new(html, :page_size => 'Letter',
                             :margin_top => '0.0in',
                             :margin_right => '0.0in',
