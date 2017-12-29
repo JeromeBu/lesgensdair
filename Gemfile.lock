@@ -213,6 +213,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wkhtmltopdf-heroku (2.12.4.0)
 
 PLATFORMS
   ruby
@@ -246,6 +247,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   stripe
   uglifier
+  wkhtmltopdf-heroku
 
 RUBY VERSION
    ruby 2.3.3p222
