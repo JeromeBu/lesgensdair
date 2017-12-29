@@ -1,6 +1,8 @@
 Rails.application.configure do
+
+  config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
   config.action_mailer.default_url_options = { host: "secure-lesgensdair.com" }
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "https://www.secure-lesgensdair.com",
     :port    => 25,
@@ -50,7 +52,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

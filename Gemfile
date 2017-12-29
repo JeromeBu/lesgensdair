@@ -24,6 +24,8 @@ gem 'money-rails'
 
 gem 'stripe'
 
+gem 'postmark-rails'
+
 gem 'pdfkit'
 
 gem "letter_opener", group: :development
@@ -39,5 +41,3 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-

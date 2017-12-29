@@ -8,6 +8,8 @@ class BuyerMailer < ApplicationMailer
   def thanks(order)
     @order = order
 
+    attachments['bon-parapente.pdf'] = File.read("#{Rails.root.join('tmp')}/bon-parapente.pdf")
     mail to: order.email, subject: "Votre Bon Parapente - Lesgendair"
   end
 end
+
