@@ -28,8 +28,3 @@ class Order < ApplicationRecord
     file = kit.to_file(Rails.root.join('tmp','bon-parapente.pdf'))
   end
 end
-
-
-# order = Order.where(email: "contact@secure-lesgensdair.com").first
-# order.creation_bon
-# BuyerMailer.thanks(order).deliver_now
