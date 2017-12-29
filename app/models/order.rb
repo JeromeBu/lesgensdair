@@ -30,4 +30,5 @@ end
 
 
 # order = Order.where(email: "contact@secure-lesgensdair.com").first
+# order.creation_bon
 # BuyerMailer.thanks(order).deliver_now
