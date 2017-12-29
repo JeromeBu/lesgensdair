@@ -15,8 +15,8 @@
         <br><br><br>
         <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
         <h2>Valable pour une durée de 1 an, soit jusqu'au : <%= (Date.today + 1.year).strftime("%d/%m/%Y")  %></h2>
-        <% if @video %>
-          <h2>Option vidéo : incluse !</h2>
+        <% if @video == "true"%>
+          <h3>Option vidéo : incluse !</h3>
         <% else %>
           <h3>Option vidéo : non incluse <br>(mais vous pourrez choisir de l'ajouter lors de la prise de rendez-vous)</h3>
         <% end %>
