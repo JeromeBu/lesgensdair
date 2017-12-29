@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @first_name = params[:first_name]
     @last_name = params[:last_name]
     @product_name = params[:product_name]
+    @video = params[:video]
     render :layout => false
   end
 end

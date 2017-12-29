@@ -10,7 +10,8 @@ class Order < ApplicationRecord
   def creation_bon
     parametres = { first_name: self.first_name,
                     last_name: self.last_name,
-                    product_name: self.product_name
+                    product_name: self.product_name,
+                    video: self.video
                   }
     string_of_param = parametres.reduce("") { |sum,(key,val)| "#{sum}&#{key}=#{val}"}
 
