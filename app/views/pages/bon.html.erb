@@ -15,6 +15,11 @@
         <br><br><br>
         <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
         <h2>Valable pour une durée de 1 an, soit jusqu'au : <%= (Date.today + 1.year).strftime("%d/%m/%Y")  %></h2>
+        <% if @video %>
+          <h2>Option vidéo : incluse !</h2>
+        <% else %>
+          <h3>Option vidéo : non incluse <br>(mais vous pourrez choisir de l'ajouter lors de la prise de rendez-vous)</h3>
+        <% end %>
        </div>
       </div>
       <div id="green-rectangle">
@@ -38,12 +43,6 @@
   </body>
 </html>
 
-
-
-
-
-
-
 <style>
   #sheet {
   border: 1px black;
@@ -55,7 +54,8 @@
 
 #img-zone {
   height: 1430px;
-  background-image: url("assets/background-para2.jpg");
+
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url("assets/background-para2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -80,7 +80,12 @@ h2 {
   font-size: 42px;
 }
 
-h1, h2 {
+h3 {
+  font-family:  'Open Sans', sans-serif;
+  font-size: 30px;
+}
+
+h1, h2, h3 {
   color: #FFFFFF;
   letter-spacing: 0;
   padding-left: 40px;
