@@ -1,20 +1,25 @@
 <div id="sheet">
   <div id="img-zone">
-    <h1>Bon Cadeau</h1>
-    <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
-    <h2>Bon pour un <%= @product_name %></h2>
+   <div id="text-img-zone">
+    <br><br><br><br>
+     <h1>Bon Cadeau</h1>
+     <h1><%= @product_name %></h1>
+     <br><br><br>
+     <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
+
+   </div>
   </div>
   <div id="green-rectangle">
   </div>
   <div id="logo-bon"></div>
   <div id="text-faq">
-    <p>Période idéale de juin à septembre</p>
+    <p>La période idéale pour voler est de juin à septembre</p>
     <ul>
       <li>S'habiller chaudement</li>
       <li>Prendre de bonnes chaussures</li>
       <li>Manger léger (ou pas) avant le vol</li>
       <li>Signaler tout problème physique (besoin de courir au décollage et à l'atterrissage).</li>
-      <li>Vous êtes assuré par le moniteur (diplômé d'État). Les vois se font à St-Pierre de Chartreuse sur le site de <i>La Scia</i>.</li>
+      <li>Vous êtes assuré par le moniteur (diplômé d'État). Les vois se font à St-Pierre de Chartreuse sur le site de La Scia.</li>
       <li>Le rendez-vous se fera à St-Pierre. Mais il est possible que ce souit sur un autre site en fonction de la météo ou de votre demande.</li>
       <li>Dans l'idéal prenez rendez-vous par e-mail et proposez une ou deux dates.</li>
     </ul>
@@ -39,30 +44,42 @@
   background-position: center bottom;
 }
 
+#text-img-zone {
+
+}
+
 #text-faq {
   position: absolute;
-  right: 100px;
-  bottom: 200px;
+  left: 120px;
+  bottom: 100px;
 }
+
 
 h1 {
   font-family: Apple-Chancery;
-  font-size: 150px;
-  color: #FFFFFF;
-  letter-spacing: 0;
-  padding-left: 40px;
+  text-align: center;
+  font-size: 80px;
+  margin: 0px;
 }
-
-
 
 h2 {
   font-family: GujaratiSangamMN;
-  font-size: 80px;
+  font-size: 42px;
+}
+
+h1, h2 {
   color: #FFFFFF;
   letter-spacing: 0;
   padding-left: 40px;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 
+p, ul {
+  color: #FFFFFF;
+  letter-spacing: 0;
+  font-size: 24px;
+  text-shadow: #989898 1px 1px;
+}
 
 /* Rectangle: */
 #green-rectangle {
@@ -82,8 +99,8 @@ h2 {
   background-size: cover;
   background-repeat: no-repeat;
   position:absolute;
-  bottom: 200px;
-  left: 100px;
+  top: 80px;
+  left: 80px;
 }
 </style>
 
