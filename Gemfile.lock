@@ -232,6 +232,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   money-rails
+  nokogiri
   pdfkit
   pg
   postmark-rails

@@ -22,11 +22,11 @@ class Order < ApplicationRecord
                             :margin_top => '0.0in',
                             :margin_right => '0.0in',
                             :margin_bottom => '0.0in',
-                            :margin_left => '0.0in',
-                            :orientation => 'Landscape')
+                            :margin_left => '0.0in')
 
     file = kit.to_file(Rails.root.join('tmp','bon-parapente.pdf'))
   end
 end
 
 
+# BuyerMailer.thanks(order).deliver_now

@@ -23,11 +23,12 @@ gem 'coffee-script'
 gem 'money-rails'
 
 gem 'stripe'
+gem 'nokogiri'
 
 gem 'postmark-rails'
 gem "letter_opener", group: :development
 
-gem 'wkhtmltopdf-heroku'
+gem 'wkhtmltopdf-heroku', group: :production
 gem 'pdfkit'
 
 
