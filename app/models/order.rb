@@ -29,4 +29,5 @@ class Order < ApplicationRecord
 end
 
 
+# order = Order.where(email: "contact@secure-lesgensdair.com").first
 # BuyerMailer.thanks(order).deliver_now
