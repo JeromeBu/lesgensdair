@@ -1,0 +1,69 @@
+<div id="sheet">
+  <div id="img-zone">
+    <h1>Bon Cadeau</h1>
+    <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
+    <h2>Bon pour un <%= @product_name %></h2>
+  </div>
+  <div id="green-rectangle">
+  </div>
+  <div id="logo-bon"></div>
+</div>
+
+<style>
+  #sheet {
+  border: 1px black;
+  width: 4100px;
+  display: block;
+  background-color: #8AC9FD;
+  position: relative;
+}
+
+#img-zone {
+  height: 2670px;
+  background-image: url("assets/background-para2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+h1 {
+  font-family: Apple-Chancery;
+  font-size: 150px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 40px;
+}
+
+
+
+h2 {
+  font-family: GujaratiSangamMN;
+  font-size: 80px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 40px;
+}
+
+
+/* Rectangle: */
+#green-rectangle {
+  background-color: #7FBF3C;
+  border: 1px solid #979797;
+  height: 500px;
+  /*position: absolute;*/
+}
+
+
+/* logo: */
+#logo-bon {
+  width: 600px;
+  height: 500px;
+  background-image: url("assets/logo.png");
+  /*  app/assets/images/logo.png*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute;
+  bottom: 200px;
+  left: 200px;
+}
+</style>

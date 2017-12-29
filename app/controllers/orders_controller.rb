@@ -40,4 +40,3 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:email, :first_name, :last_name, :video, :product_name, :cgv)
   end
 end
-
