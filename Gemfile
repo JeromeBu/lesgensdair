@@ -25,10 +25,11 @@ gem 'money-rails'
 gem 'stripe'
 
 gem 'postmark-rails'
+gem "letter_opener", group: :development
 
+gem 'wkhtmltopdf-heroku'
 gem 'pdfkit'
 
-gem "letter_opener", group: :development
 
 group :development, :test do
   gem 'binding_of_caller'
