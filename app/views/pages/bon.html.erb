@@ -10,11 +10,11 @@
       <div id="img-zone">
        <div id="text-img-zone">
         <br><br><br><br><br>
-         <h1>Bon Cadeau</h1>
-         <h1><%= @product_name %></h1>
-         <br><br><br>
-         <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
-
+        <h1>Bon Cadeau</h1>
+        <h1><%= @product_name %></h1>
+        <br><br><br>
+        <h2>Pour la personne de: <%= @first_name %> <%= @last_name %></h2>
+        <h2>Valable pour une durée de 1 an, soit jusqu'au : <%= (Date.today + 1.year).strftime("%d/%m/%Y")  %></h2>
        </div>
       </div>
       <div id="green-rectangle">
@@ -32,6 +32,7 @@
           <li>Dans l'idéal prenez rendez-vous par e-mail et proposez une ou deux dates.</li>
         </ul>
         <p>Les gens d'air vous recontactera pour fixer une heure et vous confirmera 2 jours avant, en fonction de la météo</p>
+        <p>vincent@lesgensdair.com</p>
       </div>
     </div>
   </body>
@@ -53,7 +54,7 @@
 }
 
 #img-zone {
-  height: 1430px;
+  height: 1440px;
   background-image: url("assets/background-para2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
