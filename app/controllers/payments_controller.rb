@@ -19,19 +19,21 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'payé')
-    #@order.creation_bon
-    # BuyerMailer.thanks(@order).deliver_now
+    @order.creation_bon
+    BuyerMailer.thanks(@order).deliver_now
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
-    flash[:error] = e.message
+    @order.state = 'erreur lors du paiement'
+    @order.save
+    flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
   end
 
 private
   # before_actions :
   def set_order
-    @order = Order.where(state: 'en attente').find(params[:order_id])
+    @order = Order.where.not(state: 'payé').find(params[:order_id])
     authorize @order
   end
   # -- end of before_actions
