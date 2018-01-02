@@ -5,6 +5,9 @@ class OrdersController < ApplicationController
     order = Order.new
     authorize order
     @orders = policy_scope(Order).order(created_at: :desc)
+    filtering_params(params).each do |key, value|
+      @orders = @orders.public_send(key, value) if value.present?
+    end
   end
 
   def show
@@ -39,4 +42,11 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:email, :first_name, :last_name, :video, :product_name, :cgv)
   end
+
+  # A list of the param names that can be used for filtering the order list
+  def filtering_params(params)
+    params.slice(:status)
+  end
 end
+
+
