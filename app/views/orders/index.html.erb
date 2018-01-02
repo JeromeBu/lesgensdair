@@ -16,38 +16,47 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="card">
-            <div class="card-content">
-              <table class="table">
-                <thead>
+          <div class="filters">
+            <%= form_tag(orders_path, :method => "get", class: "search-form form-inline") do %>
+              <%= label_tag "status", "Status : " %>
+              <% status = params[:status]%>
+              <%= select_tag "status", "<option value="">Tous</option><option #{'selected' if status == "payé"}>payé</option><option #{'selected' if status == "en attente"}>en attente</option><option #{'selected' if status == "erreur lors du paiement"}>erreur lors du paiement</option>".html_safe  %>
+              <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            <% end %>
+            <br>
+          </div>
+          <div class="card-content">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Date</th>
+                  <th>email</th>
+                  <th>Prénom</th>
+                  <th>Nom</th>
+                  <th>Prestation</th>
+                  <th>Video?</th>
+                  <th>Montant</th>
+                  <th>Paiement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @orders.each do |order| %>
                   <tr>
-                    <th>N°</th>
-                    <th>Date</th>
-                    <th>email</th>
-                    <th>Prénom</th>
-                    <th>Nom</th>
-                    <th>Prestation</th>
-                    <th>Video?</th>
-                    <th>Montant</th>
-                    <th>Paiement</th>
+                    <td><%= order.id %></td>
+                    <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+                    <td><%= order.email %></td>
+                    <td><%= order.first_name %></td>
+                    <td><%= order.last_name %></td>
+                    <td><%= order.product_name %></td>
+                    <td><%= order.video ? "oui" : "non" %></td>
+                    <td><%= order.amount %></td>
+                    <td><%= order.state %></td>
                   </tr>
-                </thead>
-                <tbody>
-                  <% @orders.each do |order| %>
-                    <tr>
-                      <td><%= order.id %></td>
-                      <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
-                      <td><%= order.email %></td>
-                      <td><%= order.first_name %></td>
-                      <td><%= order.last_name %></td>
-                      <td><%= order.product_name %></td>
-                      <td><%= order.video ? "oui" : "non" %></td>
-                      <td><%= order.amount %></td>
-                      <td><%= order.state %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
