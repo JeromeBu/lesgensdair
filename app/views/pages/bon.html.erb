@@ -15,7 +15,7 @@
         <br><br><br>
         <h2>Pour la personne de : <%= @first_name %> <%= @last_name %></h2>
         <h2>Valable pour une durée de 1 an, soit jusqu'au : <%= (Date.today + 1.year).strftime("%d/%m/%Y")  %></h2>
-        <% if true %>
+        <% unless @product_name.match(/stage/i) %>
           <% if @video == "true"%>
             <h3>Option vidéo : incluse !</h3>
           <% else %>
