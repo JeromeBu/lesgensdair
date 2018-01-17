@@ -1,0 +1,58 @@
+<div class="introduction-title">
+  <h3>STRIPE</h3>
+  <p>Stripe est une plateforme sécurisée (certifiée PCI niveau 1, le niveau de sécurité le plus élevé), et s’occupe entièrement du paiement, nous n’avons à aucun moment accès à votre carte bancaire.
+  Nous avons choisi Stripe, pour sa sécurité, pour son côté pratique et bien plus simple que PayPal.</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="products">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card">
+              <div class="card-content">
+                
+                <% product = @products.first %>
+                <div class="card-title">
+                  <h3><%= product.name %></h3>
+                </div>
+                <div class="card-description">
+                  <p><%= product.description %></p>
+                  <p class="centrer">Prix: <strong><%= humanized_money_with_symbol(product.price) %></strong></p>
+                </div>
+                <%= simple_form_for [@order, @products] do |f| %>
+                  <%= f.collection_radio_buttons :product, @products, :product, :product %>
+                  <%= f.input :email, label: "Email du payeur", placeholder: "tropsympa@gmail.com" %>
+                  <p class="centrer">Le chanceux :</p>
+                  <%= f.input :first_name, label: "Prénom", placeholder: "Prénom de celui qui vole" %>
+                  <%= f.input :last_name, label: "Nom", placeholder: "Nom de celui qui vole" %>
+                  <% if ["0001", "0002"].include? product.sku %>
+                    <%= f.label :video, "Photos & vidéo (+20 euros)" %>
+                    <%= f.check_box :video, as: :boolean, label: false %>
+                  <% end %>
+                  <hr id="cgv-relative-ref">
+
+                  <%= f.input :cgv, as: :boolean, id: "checkbox-cgv", label: ("<abbr title='required'>*</abbr> J'ai bien pris connaissance des #{ link_to "conditions de ventes", asset_path("CGV-Lesgensdair.pdf"), :target => "_blank"}").html_safe %>
+                  <%= f.hidden_field :product_sku, value: product.sku %>
+                  <%= f.hidden_field :product_name, value: product.name %>
+                  <br>
+                  <%= f.submit 'OFFRIR', class: "pay-link"%>
+                <% end %>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="introduction-title">
+  <p>Si vous ne souhaitez pas payer en ligne, nous avons plusieurs solutions pour vous.
+Vous pouvez nous envoyer le formulaire (<%= link_to "Télécharger ici", asset_path("bulletin-bon-cadeau-biplace-lgda-bergers.pdf"), :target => "_blank" %>) accompagné du règlement par chèque (chèque à l’ordre de « Les Gens d’Air » ).</p>
+<p>Vous pouvez réglez par virement bancaire en nous envoyant un mail pour nos coordonnées bancaires.
+Vous ne souhaitez pas un bon cadeau, vous pouvez payez après le vol, <%= link_to "contactez-nous par mail", "http://www.lesgensdair.com/contactez-nous/" %> avec vos coordonnées et disponibilités.</p>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fa fa-power-off" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+
+<abbr title="required">*</abbr>

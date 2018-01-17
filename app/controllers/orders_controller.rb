@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show, :create]
+  skip_before_action :authenticate_user!, only: [ :show, :create, :new]
 
   def index
     order = Order.new
@@ -10,12 +10,19 @@ class OrdersController < ApplicationController
     end
   end
 
+  def new
+    @order = Order.new
+    authorize @order
+    @products = Product.all
+  end
+
   def show
     @order = Order.where(state: 'payé').find(params[:id])
     authorize @order
   end
 
   def create
+    raise
     @products = policy_scope(Product)
     @product = Product.find_by(sku: params[:order][:product_sku])
     order_params[:video] == "1" ? amount_to_pay = @product.price + Money.new(2000, 'EUR') : amount_to_pay = @product.price

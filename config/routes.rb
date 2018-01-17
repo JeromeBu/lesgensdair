@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
   get 'bon', to: 'pages#bon'
   resources :products, only: [:index]
-  resources :orders, only: :index
+  resources :orders, only: [:index, :new]
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
