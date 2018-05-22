@@ -31,7 +31,7 @@
                 <tr>
                   <th>N°</th>
                   <th>Date</th>
-                  <th>email</th>
+                  <th>Email</th>
                   <th>Prénom</th>
                   <th>Nom</th>
                   <th>Prestation</th>
@@ -44,7 +44,7 @@
                 <% @orders.each do |order| %>
                   <tr>
                     <td><%= order.id %></td>
-                    <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+                    <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
                     <td><%= order.email %></td>
                     <td><%= order.first_name %></td>
                     <td><%= order.last_name %></td>
